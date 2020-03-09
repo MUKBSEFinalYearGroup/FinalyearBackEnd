@@ -29,3 +29,8 @@ Route::patch('/edit-chat-group/{id}','ChatGroupsController@editChatGroup');
 Route::get('/get-all-my-groups','ChatGroupsController@getAllMyGroups');
 Route::get('/get-all-groups-i-belong-to','ChatGroupsController@getAllGroupsIBelongTo');
 Route::patch('/assign-new-role/{id}','ChatGroupsController@assignNewRole');
+
+Route::post('/create-chat-status','ChatStatusController@createStatus');
+Route::delete('/delete-my-status/{id}','ChatStatusController@deleteMyStatus');
+Route::patch('/mark-status-as-seen/{id}','ChatStatusController@markStatusAsSeen');
+Route::patch('/mark-status-as-muted/{id}','ChatStatusController@muteStatus');

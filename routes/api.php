@@ -47,3 +47,10 @@ Route::get('/get-all-search-terms','SearchTermsController@getAllSearchTerms');
 Route::patch('/edit-search-term/{id}','SearchTermsController@editSearchTerm');
 Route::patch('/temporariy-delete-search-term/{id}','SearchTermsController@temporarilyDeleteSearchTerm');
 Route::delete('/parmanetly-delete-search-term/{id}','SearchTermsController@parmanetlyDeleteSearchTerm');
+
+Route::post('/create-package','PackagesController@createPackage');
+Route::patch('/edit-package/{id}','PackagesController@editPackage');
+Route::patch('/attach-bill-package/{id}','PackagesController@attachBill');
+Route::get('/get-all-packages','PackagesController@getAllPackages');
+Route::patch('/delete-package-temporarily/{id}','PackagesController@deletePackageTemporarily');
+Route::delete('/delete-package-parmanetly/{id}','PackagesController@deletePackageParmanetly');

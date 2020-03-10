@@ -34,3 +34,10 @@ Route::post('/create-chat-status','ChatStatusController@createStatus');
 Route::delete('/delete-my-status/{id}','ChatStatusController@deleteMyStatus');
 Route::patch('/mark-status-as-seen/{id}','ChatStatusController@markStatusAsSeen');
 Route::patch('/mark-status-as-muted/{id}','ChatStatusController@muteStatus');
+
+Route::post('/create-message-category','MessageCategoriesController@createMessageCategory');
+Route::patch('/edit-category-name/{id}','MessageCategoriesController@editCategoryName');
+Route::get('/get-message-categories','MessageCategoriesController@getAllCategories');
+Route::patch('/delete-cateory/{id}','MessageCategoriesController@deleteCategoryTemporarily');
+Route::delete('/delete-cateory-parmanetly/{id}','MessageCategoriesController@deleteCategoryParmanetly');
+Route::get('/get-my-message-categories','MessageCategoriesController@getMyMessageCategories');

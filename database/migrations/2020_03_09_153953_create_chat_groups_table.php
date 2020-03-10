@@ -20,6 +20,8 @@ class CreateChatGroupsTable extends Migration
             $table->enum('status',['participant','removed'])->default('participant');
             $table->string('group_name');
             $table->string('profile_pic');
+            $table->foreign('participants_id')->references('id')->on('users');
+            //$table->foreign('role_id')->references('id')->on('roles');
             $table->timestamps();
         });
     }

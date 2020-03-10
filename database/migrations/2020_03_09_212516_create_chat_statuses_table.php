@@ -21,6 +21,8 @@ class CreateChatStatusesTable extends Migration
             $table->enum('chat_status',['active','seen','muted'])->default('active');
             $table->string('status_file');
             $table->enum('category',['image','video','text'])->default('text');
+            $table->foreign('viewers_id')->references('id')->on('users');
+            $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }

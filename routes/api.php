@@ -41,3 +41,9 @@ Route::get('/get-message-categories','MessageCategoriesController@getAllCategori
 Route::patch('/delete-cateory/{id}','MessageCategoriesController@deleteCategoryTemporarily');
 Route::delete('/delete-cateory-parmanetly/{id}','MessageCategoriesController@deleteCategoryParmanetly');
 Route::get('/get-my-message-categories','MessageCategoriesController@getMyMessageCategories');
+
+Route::post('/create-search-team','SearchTermsController@createSearchTerms');
+Route::get('/get-all-search-terms','SearchTermsController@getAllSearchTerms');
+Route::patch('/edit-search-term/{id}','SearchTermsController@editSearchTerm');
+Route::patch('/temporariy-delete-search-term/{id}','SearchTermsController@temporarilyDeleteSearchTerm');
+Route::delete('/parmanetly-delete-search-term/{id}','SearchTermsController@parmanetlyDeleteSearchTerm');

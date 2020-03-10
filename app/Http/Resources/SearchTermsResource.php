@@ -14,6 +14,10 @@ class SearchTermsResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'search_term_name' => $this->search_term_name,
+            'status'           => $this->status,
+            'name'             => $this->name
+        ];
     }
 }

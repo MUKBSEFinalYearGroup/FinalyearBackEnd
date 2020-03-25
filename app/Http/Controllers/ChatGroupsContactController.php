@@ -18,7 +18,9 @@ class ChatGroupsContactController extends Controller
 
     protected function getGroupContacts(ChatGroupContacts $chatgroup_contact){
         //we are supposed to update the group id so that we pick by group id
-        return ChatGroupContactsResource::collection(ChatGroupContacts::all());
+        return ChatGroupContactsResource::collection(ChatGroupContacts::join('users','users.id','chat_group_contacts.created_by')
+        ->join('chat_groups','chat_groups.id','chat_group_contacts.group_id')
+        ->paginate(10));
     }
 
     protected function exitGroup($id, ChatGroupContacts $chatgroup_contact){

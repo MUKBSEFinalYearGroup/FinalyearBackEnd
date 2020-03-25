@@ -17,7 +17,9 @@ class Calls extends Controller
     }
 
     protected function getAllHistory(CallsModel $call){
-        return CallsResource::collection($call->where('status','active')->get());
+        return CallsResource::collection($call->where('status','active')
+        ->join('users','users.id','calls.caller_id')
+        ->get());
     }
 
     protected function clearAllHistory($id, CallsModel $call){

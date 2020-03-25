@@ -16,8 +16,7 @@ class PackagesResource extends JsonResource
     {
         return [
             'package_name' => $this->package_name,
-            'billing'      => $this->billing,
-            'name'         => $this->name,
+            'created_by'         => $this->name,
             'status'       => $this->status
         ];
     }

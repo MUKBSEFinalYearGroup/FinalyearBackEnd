@@ -26,8 +26,8 @@ Route::get('/get-my-sent-messages/{id}','MessagesController@getMySentMessages');
 Route::get('/get-my-recieved-messages/{id}','MessagesController@getMyRecievedMessages');
 Route::post('/create-chat-group','ChatGroupsController@createChatGroup');
 Route::patch('/edit-chat-group/{id}','ChatGroupsController@editChatGroup');
-Route::get('/get-all-my-groups','ChatGroupsController@getAllMyGroups');
-Route::get('/get-all-groups-i-belong-to','ChatGroupsController@getAllGroupsIBelongTo');
+Route::get('/get-all-my-groups/{role_id}','ChatGroupsController@getAllMyGroups');
+Route::get('/get-all-groups-i-belong-to/{id}','ChatGroupsController@getAllGroupsIBelongTo');
 Route::patch('/assign-new-role/{id}','ChatGroupsController@assignNewRole');
 
 Route::post('/create-chat-status','ChatStatusController@createStatus');

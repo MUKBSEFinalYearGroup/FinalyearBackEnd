@@ -15,10 +15,10 @@ class MessageCategoryResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'category_name' => $this->category_name,
-            'name'          => $this->name,
-            'package'       => $this->package,
-            'status'        => $this->status
+            'category_name'      => $this->category_name,
+            'name'               => $this->name,
+            'package_name'       => $this->package_name,
+            'status'             => $this->status
         ];
     }
 }

@@ -16,12 +16,12 @@ class ChatGroupsController extends Controller
         ChatGroup::where('id',$id)->update(array('group_name'=>'Group_BSE31','profile_pic'=>'image/group/name'));
     }
 
-    protected function getAllMyGroups(){
-        return ChatGroupsResource::collection(ChatGroup::where('role_id',$id)
+    protected function getAllMyGroups($role_id){
+        return ChatGroupsResource::collection(ChatGroup::where('role_id',$role_id)
         ->select('group_name')->get());
     }
 
-    protected function getAllGroupsIBelongTo(){
+    protected function getAllGroupsIBelongTo($id){
         return ChatGroupsResource::collection(ChatGroup::join('users','users.id','chat_groups.participants_id')
             ->where('participants_id',$id)
             ->select('group_name','name')->get());

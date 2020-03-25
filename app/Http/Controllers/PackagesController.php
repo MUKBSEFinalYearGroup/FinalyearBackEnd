@@ -21,7 +21,7 @@ class PackagesController extends Controller
     }
 
     protected function getAllPackages(){
-        return PackagesResource::collection(Packages::all());
+        return PackagesResource::collection(Packages::join('users','users.id','packages.created_by')->get());
     }
 
     protected function deletePackageTemporarily($id){

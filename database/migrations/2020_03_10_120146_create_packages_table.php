@@ -16,7 +16,7 @@ class CreatePackagesTable extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('package_name');
-            $table->unsignedBigInteger('billing_id')->nullable();
+            $table->unsignedBigInteger('bill')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->enum('status',['active','deleted'])->default('active');
             $table->timestamps();

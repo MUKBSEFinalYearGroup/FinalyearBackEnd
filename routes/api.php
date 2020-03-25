@@ -64,3 +64,8 @@ Route::post('/make-a-call','Calls@makeACall');
 Route::patch('/reject-call/{id}','Calls@rejectCall');
 Route::get('/get-all-call-history','Calls@getAllHistory');
 Route::patch('/clear-call-history/{id}','Calls@clearAllHistory');
+
+Route::post('/reply-to-message/{id}','RepliesController@replyToMessage');
+Route::post('/reply-to-status/{id}','RepliesController@replyToChatStatus');
+Route::delete('/delete-message-reply/{id}','RepliesController@deleteMessageReply');
+Route::delete('/delete-status-reply/{id}','RepliesController@deleteStatusReply');

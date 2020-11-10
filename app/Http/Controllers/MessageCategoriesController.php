@@ -17,7 +17,9 @@ class MessageCategoriesController extends Controller
     }
 
     protected function getAllCategories(MessageCategory $category){
-        return MessageCategoryResource::collection(MessageCategory::where('status','active')->get());
+        return MessageCategoryResource::collection(MessageCategory::join('users','users.id','message_categories.created_by')
+        ->join('packages','packages.id','message_categories.created_by')
+        ->where('message_categories.status','active')->get());
     }
 
     protected function deleteCategoryTemporarily($id, MessageCategory $category){

@@ -26,8 +26,8 @@ Route::get('/get-my-sent-messages/{id}','MessagesController@getMySentMessages');
 Route::get('/get-my-recieved-messages/{id}','MessagesController@getMyRecievedMessages');
 Route::post('/create-chat-group','ChatGroupsController@createChatGroup');
 Route::patch('/edit-chat-group/{id}','ChatGroupsController@editChatGroup');
-Route::get('/get-all-my-groups','ChatGroupsController@getAllMyGroups');
-Route::get('/get-all-groups-i-belong-to','ChatGroupsController@getAllGroupsIBelongTo');
+Route::get('/get-all-my-groups/{role_id}','ChatGroupsController@getAllMyGroups');
+Route::get('/get-all-groups-i-belong-to/{id}','ChatGroupsController@getAllGroupsIBelongTo');
 Route::patch('/assign-new-role/{id}','ChatGroupsController@assignNewRole');
 
 Route::post('/create-chat-status','ChatStatusController@createStatus');
@@ -54,3 +54,18 @@ Route::patch('/attach-bill-package/{id}','PackagesController@attachBill');
 Route::get('/get-all-packages','PackagesController@getAllPackages');
 Route::patch('/delete-package-temporarily/{id}','PackagesController@deletePackageTemporarily');
 Route::delete('/delete-package-parmanetly/{id}','PackagesController@deletePackageParmanetly');
+
+Route::post('/add-contact-to-group','ChatGroupsContactController@addContactToGroup');
+Route::patch('/delete-group-contact/{id}','ChatGroupsContactController@deletegroupContact');
+Route::get('/get-group-contacts','ChatGroupsContactController@getGroupContacts');
+Route::patch('/exit-group/{id}','ChatGroupsContactController@exitGroup');
+
+Route::post('/make-a-call','Calls@makeACall');
+Route::patch('/reject-call/{id}','Calls@rejectCall');
+Route::get('/get-all-call-history','Calls@getAllHistory');
+Route::patch('/clear-call-history/{id}','Calls@clearAllHistory');
+
+Route::post('/reply-to-message/{id}','RepliesController@replyToMessage');
+Route::post('/reply-to-status/{id}','RepliesController@replyToChatStatus');
+Route::delete('/delete-message-reply/{id}','RepliesController@deleteMessageReply');
+Route::delete('/delete-status-reply/{id}','RepliesController@deleteStatusReply');

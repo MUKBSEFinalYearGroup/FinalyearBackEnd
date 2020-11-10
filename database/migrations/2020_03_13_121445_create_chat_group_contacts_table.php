@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePackagesTable extends Migration
+class CreateChatGroupContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePackagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('packages', function (Blueprint $table) {
+        Schema::create('chat_group_contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('package_name');
-            $table->unsignedBigInteger('bill')->nullable();
+            $table->unsignedBigInteger('contact_id')->nullable();
+            $table->unsignedBigInteger('group_id')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
-            $table->enum('status',['active','deleted'])->default('active');
+            $table->enum('status',['active','deleted','exited'])->default('active');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreatePackagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('packages');
+        Schema::dropIfExists('chat_group_contacts');
     }
 }

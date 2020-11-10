@@ -13,7 +13,7 @@ class SearchTermsController extends Controller
     }
 
     protected function getAllSearchTerms(){
-        return SearchTermsResource::collection(SearchTerms::where('status','active')->get());
+        return SearchTermsResource::collection(SearchTerms::join('users','users.id','search_terms.created_by')->where('status','active')->get());
     }
 
     protected function editSearchTerm($id){

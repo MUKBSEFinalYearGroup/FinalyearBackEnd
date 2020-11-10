@@ -9,7 +9,7 @@ use App\Message;
 use App\User;
 
 
-class messagesTest extends TestCase
+class messagesTest extends ChatStatusTest
 {
     use RefreshDatabase;
 

@@ -32,15 +32,15 @@ class MessagesController extends Controller
     }
 
     public function getAllMessages(){
-        return MessagesResource::collection(Message::all());
+        return MessagesResource::collection(Message::join('users','users.id','messages.senders_id')->paginate(10));
     }
 
     public function getMySentMessages($id){
-        return MessagesResource::collection(Message::where('senders_id',$id));
+        return MessagesResource::collection(Message::join('users','users.id','messages.senders_id')->where('senders_id',$id)->get());
     }
 
     public function getMyRecievedMessages($id){
-        return MessagesResource::collection(Message::where('senders_id',$id));
+        return MessagesResource::collection(Message::join('users','users.id','messages.recievers_id')->where('recievers_id',$id)->get());
     }
 
     protected function validateMessage(){

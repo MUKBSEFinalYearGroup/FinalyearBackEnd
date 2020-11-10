@@ -15,7 +15,6 @@ class ChatGroupsResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'name'       => $this->name,
             'group_name' => $this->group_name
         ];
     }
